@@ -1,24 +1,23 @@
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-
         int[] arr = new int[9];
-    
-        for(int i = 0; i < arr.length; i++ ){
+        int max = Integer.MIN_VALUE;
+        int index = Integer.MIN_VALUE;
+        for(int i = 0; i < arr.length; i++){
             arr[i] = sc.nextInt();
         }
-        int max = arr[0];
-        int maxNum = 1;
-        for(int i = 0; i < arr.length; i++) {
-            if(max < arr[i]) {
+        
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] > max){
                 max = arr[i];
-                maxNum = i+1;
+                index = i+1;
             }
         }
 
         System.out.println(max);
-        System.out.println(maxNum);
+        System.out.println(index);
     }
 }
