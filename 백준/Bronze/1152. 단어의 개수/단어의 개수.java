@@ -1,17 +1,23 @@
 import java.util.*;
+import java.io.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String inputStr = sc.nextLine().trim();
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        
+        String str= br.readLine().trim();
 
-
-        if (inputStr.isEmpty()) { 
-            System.out.println(0);
+        if(str.isEmpty()){
+            bw.write("0");
         } else {
-            System.out.println(inputStr.split(" ").length);
+            bw.write(String.valueOf(str.split(" ").length));
         }
         
-        sc.close();
-    }
+
+        bw.flush();
+        bw.close();
+
+        
+    }  
 }
