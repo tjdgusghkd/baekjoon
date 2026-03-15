@@ -1,26 +1,20 @@
 import java.util.*;
+import java.io.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String originNum1 = sc.next();
-        String originNum2 = sc.next();
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        
+        String[] arr = br.readLine().split(" ");
+        StringBuilder sb1 = new StringBuilder(arr[0]).reverse();
+        StringBuilder sb2 = new StringBuilder(arr[1]).reverse();
 
-        StringBuilder sb1 = new StringBuilder(originNum1);
-        int num1 = Integer.parseInt(sb1.reverse().toString());
-        StringBuilder sb2 = new StringBuilder(originNum2);
-        int num2 = Integer.parseInt(sb2.reverse().toString());
+        int max = Math.max(Integer.parseInt(sb1+""), Integer.parseInt(sb2+""));
+        bw.write(max+"");
+        bw.flush();
+        bw.close();
 
-        if(num1 < num2) {
-            System.out.println(num2);
-        } else {
-            System.out.println(num1);
-        }
-
-
-
-
-
-
-    }
+        
+    }  
 }
