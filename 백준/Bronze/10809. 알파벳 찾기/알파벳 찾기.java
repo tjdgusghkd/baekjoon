@@ -1,29 +1,22 @@
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String str = sc.nextLine();
-        char[] alpha = new char[26];
-        int a = 97;
-        for(int i = 0; i < alpha.length; i++) {
-            alpha[i] = (char)a;
-            a++;
+    public static void main(String[] args){
+     Scanner sc = new Scanner(System.in);
+     String str = sc.nextLine();
+     int[] arr = new int[26];
+     Arrays.fill(arr, -1);
+     for(int i = 0; i < str.length(); i++){
+        char ch = str.charAt(i);
+        if(arr[ch - 'a'] == -1){
+            arr[ch - 'a'] = i;
+        } else {
+            continue;
         }
+     }
 
-       for(int i = 0; i < alpha.length; i++) {
-            int result = -1;    
-            for(int j = 0; j < str.length(); j++) {
-                if(str.charAt(j) == alpha[i]) {
-                    result = j;
-                    break;
-                }
-            }
-            System.out.print(result + " ");
-       }
-       
-
-        
-        
-    }
+     for(int i : arr){
+        System.out.printf(i + " ");
+     }
+    }  
 }
